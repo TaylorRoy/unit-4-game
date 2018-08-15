@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MYSTERY CRYSTAL GAME</title>
+
+
+
+    <!--links bootstrap to html file-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!--link to Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Diplomata+SC|Fredericka+the+Great|Rye|Vast+Shadow" rel="stylesheet">
+
+    <!--links css file to html file-->
+    <link rel="stylesheet" href="./assets/css/unit4-style.css">
+</head>
+
+<body>
+
+
+
+
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-text col-md-12">
+            <h1 class="header">MYSTERY CRYSTAL GAME</h1>
+        </span>
+    </nav>
+
+    <!--create the grid system for the html display of the game  2 main colums- the left with six rows, and the right with 3 rows-->
+    <div class="background-pattern" solid; style="background-image:url(./assets/images/triangles.jpg)">
+        <div class="container">
+            <div class="row">
+                <div id="row1display" class="col-md-6">
+                    <div class="row-md-6">
+                        <h2 id="instruction">Instructions</h2>
+                    </div>
+                    <div class="row-md-6">
+                        <p id="target-score">Target Score: </p>
+                    </div>
+                    <div class="row-md-6">
+                        <p id="your-score">Your Score: </p>
+                    </div>
+                    <div class="row-md-6">
+                        <p id="wins">Wins: </p>
+                    </div>
+                    <div class="row-md-6">
+                        <p id="losses">Losses: </p>
+                    </div>
+                    <div class="row-md-6">
+                        <p id="win-lose-area">win lose area</p>
+                    </div>
+                </div>
+
+                <div id="row2display" class="col-md-6">
+                    <p id= "crystal-image-area">crystal area</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div>
+        <nav class="navbar sticky-bottom navbar-light bg-light">
+            <a id="sticky-copyright" class="navbar-brand col-12" href="#">Copyright</a>
+        </nav>
+    </div>
+
+    <!--links JQuery to HTML file-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--links javascript file to html file-->
+    <script src="./assets/javascript/unit4-2.js"></script>
+
+</body>
+
+</html>
