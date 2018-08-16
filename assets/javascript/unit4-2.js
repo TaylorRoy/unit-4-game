@@ -4,9 +4,17 @@ var win = 0;
 
 var lose = 0;
 
-var randomNumber = [1, 4, 8, 10];
+//values that will be attached to each crystal
+var crystalValueArray = [1, 4, 8, 10];
 
-//var randomNumber = crystalValueArray[(Math.floor(Math.random() *4))] 
+//declare here to fill with random values from shuffleArray(crystalValueArray) below
+var randomCrystalValueArray = [];
+
+var imageArray = ["./assets/images/crystal.jpg", "./assets/images/crystal2.jpg", "./assets/images/crystal3.jpg", "./assets/images/crystal4.jpg"];
+
+var randomImageArray = [];
+
+//crystalValueArray[(Math.floor(Math.random() *4))] 
 
 //between 19-120
 var targetScore = 55;
@@ -24,15 +32,49 @@ $("#losses").text("Losses: " + lose);
 
 $("#your-score").text("Your Score: " + yourScore);
 
+
+//use Durstenfeld shuffle function to randomize crystalValueArray
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    //set array in function to empty randomCrystalValueArray
+    randomCrystalValueArray = array
+};
+
+//call shuffleArray function with crystalValueArray 
+shuffleArray(crystalValueArray);
+
+//use Durstenfeld shuffle function to randomize imageArray
+function shuffleImageArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    //set array in function to empty randomCrystalValueArray
+    randomImageArray = array
+};
+
+//call shuffleArray function with crystalValueArray 
+shuffleImageArray(imageArray);
+
 //reset game after win or lose condition is met
 function reset() {
     yourScore = 0;
-
+    randomCrystalValueArray = [];
+    randomImageArray = [];
 };
 
 
  //iterating through randomNumber 
- for (var i = 0; i < randomNumber.length; i++) {
+ for (var i = 0; i < randomCrystalValueArray.length; i++) {
 
     //creates a new img element in html dom
     var imageCrystal = $("<img>");
@@ -41,11 +83,11 @@ function reset() {
     imageCrystal.addClass("crystal-image");
 
     //  //gives imageCrystal a src link to the crystal image
-    imageCrystal.attr("src", "./assets/images/crystal.jpg");
+    imageCrystal.attr("src", randomImageArray[i]);
 
     // Each imageCrystal will be given a data attribute called data-crystalValue.
     // This data attribute will be set equal to the array value.
-    imageCrystal.attr("data-crystalvalue", randomNumber[i]);
+    imageCrystal.attr("data-crystalvalue", crystalValueArray[i]);
 
     // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
     $("#row2display").append(imageCrystal);
